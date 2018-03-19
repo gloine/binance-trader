@@ -27,11 +27,11 @@ class Binance:
 
         balances['balances'] = {item['asset']: item for item in balances['balances']}
         
-        print balances['balances'][asset]['free']
+        print(balances['balances'][asset]['free'])
                  
     def orders(self, symbol, limit):
         orders = self.client.get_open_orders(symbol, limit)
-        print orders
+        print(orders)
 
     def tickers(self):
         return self.client.get_all_tickers()
@@ -68,13 +68,13 @@ try:
     print('4 -) Check balance')
     print('Enter option number: Ex: 2')
 
-    option = raw_input()
+    option = input()
     
     if option is '1':
         
         print('Enter symbol: Ex: XVGBTC')
         
-        symbol = raw_input()
+        symbol = input()
         
         # Orders
         print('%s Orders' % (symbol))
@@ -86,7 +86,7 @@ try:
         
         print('Enter asset: Ex: BTC')
         
-        symbol = raw_input()
+        symbol = input()
         
         print('%s balance' % (symbol))
         
@@ -95,9 +95,9 @@ try:
         
         print('Enter Asset (Ex: BTC, ETC, BNB, USDT)')
         
-        asset = raw_input()
+        asset = input()
         
-        print 'Profits scanning...'
+        print('Profits scanning...')
         m.profits(asset)
 
 except 'BinanceAPIException' as e:
